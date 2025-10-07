@@ -1,0 +1,138 @@
+{
+  "common": {
+    "loading": "Зареждане...",
+    "save": "Запази",
+    "cancel": "Отказ",
+    "edit": "Редактирай",
+    "delete": "Изтрий",
+    "create": "Създай",
+    "search": "Търси",
+    "filter": "Филтър",
+    "yes": "Да",
+    "no": "Не",
+    "close": "Затвори",
+    "back": "Назад",
+    "next": "Напред",
+    "submit": "Изпрати",
+    "confirm": "Потвърди"
+  },
+  "auth": {
+    "signIn": "Вход",
+    "signUp": "Регистрация",
+    "signOut": "Изход",
+    "email": "Имейл",
+    "password": "Парола",
+    "confirmPassword": "Потвърди паролата",
+    "fullName": "Пълно име",
+    "rememberMe": "Запомни ме",
+    "forgotPassword": "Забравена парола?",
+    "createAccount": "Създай акаунт",
+    "alreadyHaveAccount": "Вече имаш акаунт?",
+    "dontHaveAccount": "Нямаш акаунт?",
+    "processing": "Обработва се...",
+    "welcomeBack": "Добре дошъл отново!"
+  },
+  "landing": {
+    "hero": {
+      "title": "Резервирай всяка услуга,",
+      "subtitle": "всеки бизнес",
+      "description": "Пълната платформа за резервации, която се адаптира към нуждите на твоя бизнес. От ресторанти до салони, консултации до срещи - ние те покриваме.",
+      "startTrial": "Започни безплатен период",
+      "watchDemo": "Гледай демо"
+    },
+    "features": {
+      "title": "Всичко необходимо за управление на резервации",
+      "smartScheduling": "Интелигентно планиране",
+      "multiBusinessSupport": "Поддръжка за множество бизнеси",
+      "mobileFirst": "Мобилен дизайн",
+      "analytics": "Разширена аналитика",
+      "aiChat": "AI чат интеграция",
+      "security": "Корпоративна сигурност"
+    },
+    "pricing": {
+      "title": "Прости, прозрачни цени",
+      "description": "Избери перфектния план за твоя бизнес. Всички планове включват 14-дневен безплатен период.",
+      "starter": "Начинаещ",
+      "professional": "Професионален",
+      "enterprise": "Корпоративен",
+      "startTrial": "Започни безплатен период"
+    }
+  },
+  "dashboard": {
+    "overview": "Преглед",
+    "reservations": "Резервации",
+    "services": "Услуги",
+    "customers": "Клиенти",
+    "messages": "Съобщения",
+    "analytics": "Аналитика",
+    "qrCode": "QR код",
+    "aiPhone": "AI телефон",
+    "telegram": "Telegram",
+    "businessHours": "Работно време",
+    "settings": "Настройки",
+    "welcome": "Добре дошъл",
+    "welcomeMessage": "Ето какво се случва с твоя бизнес днес."
+  },
+  "business": {
+    "setup": "Настройка на бизнес",
+    "name": "Име на бизнеса",
+    "type": "Тип бизнес",
+    "description": "Описание",
+    "phone": "Телефон",
+    "email": "Имейл",
+    "address": "Адрес",
+    "themeColor": "Цвят на темата",
+    "timezone": "Часова зона",
+    "createBusiness": "Създай бизнес",
+    "updateBusiness": "Актуализирай бизнес"
+  },
+  "reservations": {
+    "title": "Резервации",
+    "newReservation": "Нова резервация",
+    "customerName": "Име на клиента",
+    "service": "Услуга",
+    "date": "Дата",
+    "time": "Час",
+    "status": "Статус",
+    "notes": "Бележки",
+    "pending": "Чакаща",
+    "confirmed": "Потвърдена",
+    "cancelled": "Отказана",
+    "completed": "Завършена"
+  },
+  "services": {
+    "title": "Услуги",
+    "addService": "Добави услуга",
+    "serviceName": "Име на услугата",
+    "description": "Описание",
+    "duration": "Продължителност (минути)",
+    "price": "Цена",
+    "active": "Активна",
+    "inactive": "Неактивна"
+  },
+  "messages": {
+    "title": "Съобщения и комуникация",
+    "subtitle": "Управлявайте съобщенията и комуникацията с клиенти",
+    "allStatuses": "Всички статуси",
+    "noMessages": "Няма съобщения",
+    "noMessagesDesc": "Все още не сте получили съобщения.",
+    "reply": "Отговори",
+    "replyPlaceholder": "Напишете отговора си...",
+    "markAsRead": "Маркирай като прочетено",
+    "createReservation": "Създай резервация",
+    "createdFromMessage": "Създадено от съобщение",
+    "unread": "Непрочетени",
+    "read": "Прочетени",
+    "replied": "Отговорени"
+  },
+  "subscription": {
+    "title": "Абонамент",
+    "currentPlan": "Текущ план",
+    "upgrade": "Надгради",
+    "downgrade": "Понижи",
+    "cancel": "Отказ",
+    "billing": "Фактуриране",
+    "paymentMethod": "Начин на плащане",
+    "nextBilling": "Следващо фактуриране"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "confirm": "Confirm"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "createAccount": "Create Account",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "processing": "Processing...",
+    "welcomeBack": "Welcome back!"
+  },
+  "landing": {
+    "hero": {
+      "title": "Book Any Service,",
+      "subtitle": "Any Business",
+      "description": "The complete reservation platform that adapts to your business needs. From restaurants to salons, consultations to appointments - we've got you covered.",
+      "startTrial": "Start Free Trial",
+      "watchDemo": "Watch Demo"
+    },
+    "features": {
+      "title": "Everything You Need to Manage Reservations",
+      "smartScheduling": "Smart Scheduling",
+      "multiBusinessSupport": "Multi-Business Support",
+      "mobileFirst": "Mobile-First Design",
+      "analytics": "Advanced Analytics",
+      "aiChat": "AI Chat Integration",
+      "security": "Enterprise Security"
+    },
+    "pricing": {
+      "title": "Simple, Transparent Pricing",
+      "description": "Choose the perfect plan for your business. All plans include a 14-day free trial.",
+      "starter": "Starter",
+      "professional": "Professional",
+      "enterprise": "Enterprise",
+      "startTrial": "Start Free Trial"
+    }
+  },
+  "dashboard": {
+    "overview": "Overview",
+    "reservations": "Reservations",
+    "services": "Services",
+    "customers": "Customers",
+    "messages": "Messages",
+    "analytics": "Analytics",
+    "qrCode": "QR Code",
+    "aiPhone": "AI Phone",
+    "telegram": "Telegram",
+    "businessHours": "Business Hours",
+    "settings": "Settings",
+    "welcome": "Welcome",
+    "welcomeMessage": "Here's what's happening with your business today."
+  },
+  "business": {
+    "setup": "Business Setup",
+    "name": "Business Name",
+    "type": "Business Type",
+    "description": "Description",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "themeColor": "Theme Color",
+    "timezone": "Timezone",
+    "createBusiness": "Create Business",
+    "updateBusiness": "Update Business"
+  },
+  "reservations": {
+    "title": "Reservations",
+    "newReservation": "New Reservation",
+    "customerName": "Customer Name",
+    "service": "Service",
+    "date": "Date",
+    "time": "Time",
+    "status": "Status",
+    "notes": "Notes",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "cancelled": "Cancelled",
+    "completed": "Completed"
+  },
+  "services": {
+    "title": "Services",
+    "addService": "Add Service",
+    "serviceName": "Service Name",
+    "description": "Description",
+    "duration": "Duration (minutes)",
+    "price": "Price",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "messages": {
+    "title": "Messages & Communication",
+    "subtitle": "Manage customer messages and communications",
+    "allStatuses": "All Statuses",
+    "noMessages": "No Messages",
+    "noMessagesDesc": "You haven't received any messages yet.",
+    "reply": "Reply",
+    "replyPlaceholder": "Type your reply...",
+    "markAsRead": "Mark as Read",
+    "createReservation": "Create Reservation",
+    "createdFromMessage": "Created from message",
+    "unread": "Unread",
+    "read": "Read",
+    "replied": "Replied"
+  },
+  "subscription": {
+    "title": "Subscription",
+    "currentPlan": "Current Plan",
+    "upgrade": "Upgrade",
+    "downgrade": "Downgrade",
+    "cancel": "Cancel",
+    "billing": "Billing",
+    "paymentMethod": "Payment Method",
+    "nextBilling": "Next Billing"
+  }
+}
