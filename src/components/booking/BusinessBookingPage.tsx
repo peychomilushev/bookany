@@ -176,31 +176,37 @@ export function BusinessBookingPage({ businessId }: BusinessBookingPageProps) {
   };
 
   const generateTimeSlots = () => {
-    const slots = [];
-    const today = new Date(selectedDate);
-    const dayOfWeek = today.getDay();
-    
-    const hours = businessHours.find(h => h.day_of_week === dayOfWeek);
-    if (!hours || !hours.is_open) return slots;
+  const slots: string[] = [];
+  if (!selectedDate) return slots;
 
-    const [openHour, openMinute] = hours.open_time.split(':').map(Number);
-    const [closeHour, closeMinute] = hours.close_time.split(':').map(Number);
-    
-    const serviceDuration = selectedService?.duration || 60;
-    const slotInterval = 30; // 30-minute intervals
+  const selected = new Date(selectedDate);
+  // Align JS day (0–6, Sunday first) to your DB day (1–7, Monday first)
+  const jsDay = selected.getDay(); // Sunday = 0
+  const dayOfWeek = jsDay === 0 ? 7 : jsDay; // convert to 1–7
 
-    for (let hour = openHour; hour < closeHour; hour++) {
-      for (let minute = 0; minute < 60; minute += slotInterval) {
-        if (hour === closeHour - 1 && minute + serviceDuration > 60) break;
-        if (hour === closeHour && minute >= closeMinute) break;
-        
-        const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
-        slots.push(timeString);
-      }
+  const hours = businessHours.find(h => h.day_of_week === dayOfWeek);
+  if (!hours || !hours.is_open) return slots;
+
+  const [openHour, openMinute] = hours.open_time.split(':').map(Number);
+  const [closeHour, closeMinute] = hours.close_time.split(':').map(Number);
+
+  const serviceDuration = selectedService?.duration || 60;
+  const slotInterval = 30;
+
+  for (let hour = openHour; hour < closeHour; hour++) {
+    for (let minute = 0; minute < 60; minute += slotInterval) {
+      const endTime = hour * 60 + minute + serviceDuration;
+      const closeTime = closeHour * 60 + closeMinute;
+      if (endTime > closeTime) break;
+
+      const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+      slots.push(timeString);
     }
+  }
 
-    return slots;
-  };
+  return slots;
+};
+
 
   const getDayName = (dayIndex: number) => {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
