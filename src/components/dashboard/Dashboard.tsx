@@ -32,30 +32,24 @@ export function Dashboard() {
   const navigate = useNavigate();
 
   // Handle subscription success redirect
-useEffect(() => {
-  const handleSubscriptionSuccess = async () => {
-    if (searchParams.get('subscription') === 'success') {
-      console.log('Subscription success detected! Refreshing subscription status...');
-      
-      // Refresh subscription status with a small delay to allow webhook to process
-      setTimeout(async () => {
-        await refreshSubscription();
-        
-        if (hasAccess) {
-          console.log('Subscription access granted!');
-          // Remove query parameters
-          searchParams.delete('subscription');
-          setSearchParams(searchParams);
-        } else {
-          console.log('Subscription not found yet, will retry...');
-          // The hook will automatically retry
-        }
-      }, 3000); // 3 second delay to allow webhook to process
-    }
-  };
+  useEffect(() => {
+    const subscriptionParam = searchParams.get('subscription');
 
-  handleSubscriptionSuccess();
-}, [searchParams, setSearchParams, refreshSubscription, hasAccess]);
+    if (subscriptionParam === 'success') {
+      console.log('Subscription success detected! Refreshing subscription status...');
+
+      // Remove query parameter immediately to prevent re-triggering
+      searchParams.delete('subscription');
+      setSearchParams(searchParams);
+
+      // Refresh subscription status with a delay to allow webhook to process
+      const timer = setTimeout(() => {
+        refreshSubscription();
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Show loading while checking subscription
   if (subscriptionLoading) {

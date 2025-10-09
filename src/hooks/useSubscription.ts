@@ -60,13 +60,30 @@ export function useSubscription(user: User | null) {
   };
 
   useEffect(() => {
-    checkSubscription();
-  }, [user]);
+  const check = async () => {
+    setLoading(true);
+    const start = Date.now();
+
+    await checkSubscription(); // your existing async logic
+
+    // ensure at least 2s spinner
+    const elapsed = Date.now() - start;
+    const minDelay = 2000;
+    if (elapsed < minDelay) {
+      await new Promise((r) => setTimeout(r, minDelay - elapsed));
+    }
+
+    setLoading(false);
+  };
+
+  if (user) check();
+  else setLoading(false);
+}, [user]);
 
   const refreshSubscription = async () => {
     setLoading(true);
     setError(null);
-    await checkSubscription();
+    await checkSubscription(0);
   };
 
   return {

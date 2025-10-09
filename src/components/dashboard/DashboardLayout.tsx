@@ -18,6 +18,7 @@ import {
   Globe
 } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
+import { ProfileDropdown } from "./ProfileDropdown";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -141,9 +142,7 @@ export function DashboardLayout({ children, activeTab, onTabChange }: DashboardL
               {t(navigation.find(n => n.id === activeTab)?.name || 'dashboard.overview')}
             </h1>
             <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-sm font-medium">A</span>
-              </div>
+              <ProfileDropdown onTabChange={onTabChange} />
             </div>
           </div>
         </div>

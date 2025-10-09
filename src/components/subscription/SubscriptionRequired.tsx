@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Crown, Check, Star, CreditCard } from 'lucide-react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useAuth } from '../../hooks/useAuth';
+import { supabase } from '../../lib/supabase';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || '');
 
@@ -11,7 +12,7 @@ const plans = [
     id: 'starter',
     name: 'Starter',
     price: 29,
-    priceId: 'price_starter_monthly',
+    priceId: 'price_1SCwyW2Lue5peqhPyGGcZSEt',
     features: [
       'До 100 резервации/месец',
       'Основно управление на календар',
@@ -25,7 +26,7 @@ const plans = [
     id: 'professional',
     name: 'Professional',
     price: 79,
-    priceId: 'price_professional_monthly',
+    priceId: 'price_1SCxAH2Lue5peqhPvG0J79fb',
     popular: true,
     features: [
       'Неограничени резервации',
@@ -41,7 +42,7 @@ const plans = [
     id: 'enterprise',
     name: 'Enterprise',
     price: 199,
-    priceId: 'price_enterprise_monthly',
+    priceId: 'price_1SCxAw2Lue5peqhPIRDfSixi',
     features: [
       'Всичко от Professional',
       'White-label решение',
@@ -67,19 +68,27 @@ export function SubscriptionRequired() {
       const stripe = await stripePromise;
       if (!stripe) throw new Error('Stripe failed to load');
 
-     // Use Supabase function instead of /api endpoint
-     const { data, error } = await supabase.functions.invoke('create-checkout-session', {
-       body: {
-         priceId: plan.priceId,
-         userId: user.id,
-         userEmail: user.email,
-         successUrl: `${window.location.origin}/dashboard?subscription=success`,
-         cancelUrl: `${window.location.origin}/dashboard?subscription=canceled`
-       }
-     });
+      const { data, error } = await supabase.functions.invoke('create-checkout-session', {
+        body: {
+          priceId: plan.priceId,
+          userId: user.id,
+          successUrl: `${window.location.origin}/dashboard?subscription=success`,
+          cancelUrl: `${window.location.origin}/dashboard?subscription=canceled`
+        }
+      });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message || 'Failed to create checkout session');
+      }
+
+      if (!data?.sessionId) {
+        console.error('No session ID returned:', data);
+        throw new Error('No session ID returned from server');
+      }
 
       const result = await stripe.redirectToCheckout({
-       sessionId: data.sessionId
+        sessionId: data.sessionId
       });
 
       if (result.error) {
